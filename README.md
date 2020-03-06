@@ -26,11 +26,3 @@ HTML returned from function:
 
 Example headings that were created using the function:
 ![uploader](./src/example-headings.png)
-
-
-
-
-
-
-
-![haynes](./src/example-headings.png)
