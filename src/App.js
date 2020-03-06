@@ -5,7 +5,7 @@ import Tesseract from 'tesseract.js';
 class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { imageSrc: false, imageAltText: '' };
+		this.state = { imageSrc: false, imageAltText: '', fontSize: '20' };
 		this.onChangeHandler = this.onChangeHandler.bind(this);
 		this.getEmailTemplate = this.getEmailTemplate.bind(this);
 	}
@@ -19,8 +19,8 @@ class App extends Component {
 	}
 
 	getEmailTemplate() {
+		const { fontSize } = this.state;
 		const image = document.getElementById('placeholder-image');
-
 		Tesseract.recognize(
 			image,
 			'eng',
@@ -30,10 +30,9 @@ class App extends Component {
 			const text = data.data.text;
 			const arrayOfLines = text.split("\n");
 			const charsInLongestLine = arrayOfLines.reduce(function (a, b) { return a.length > b.length ? a : b; }).length;
-			const fontSize = 20;
 			const rawWidth = image.clientWidth;
 			const rawHeight = image.clientHeight;
-			const finalWidth = Math.ceil(charsInLongestLine * fontSize)
+			const finalWidth = Math.ceil(charsInLongestLine * parseInt(fontSize, 10));
 			const finalHeight = Math.ceil(rawHeight / (rawWidth / finalWidth));
 
 
@@ -61,6 +60,11 @@ class App extends Component {
 		return (
 			<div>
 				<form>
+					<select onChange={(e) => this.setState({ fontSize: e.target.value })}>
+						<option value="20">h1</option>
+						<option value="16">h2</option>
+						<option value="12">h3</option>
+					</select>
 					<input type="file" name="file" onChange={this.onChangeHandler}/>
 					{ imageSrc && <img id="placeholder-image" src={imageSrc} onLoad={this.getEmailTemplate} /> }
 				</form>
