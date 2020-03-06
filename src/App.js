@@ -83,7 +83,7 @@ class App extends Component {
 					</form>
 				</div>
 				<div className="result-wrapper">
-					{ !this.state.loading && imageSrc && <img id="placeholder-image" src={imageSrc}  /> }
+					 <img id="placeholder-image" src={imageSrc} style={{display: !this.state.loading ? 'block' : 'none'}}  />
 					<br/>
 					{
 						this.state.loading &&
