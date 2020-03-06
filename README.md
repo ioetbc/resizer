@@ -17,4 +17,4 @@ How does it work?
 7. return html that can be copied and pasted into the email tempalte (includes alt text that will be the file name)
 
 some screenshots:
-![haynes](example-headings.png)
+![haynes](./src/example-headings.png)
