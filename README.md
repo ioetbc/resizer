@@ -17,4 +17,20 @@ How does it work?
 7. return html that can be copied and pasted into the email tempalte (includes alt text that will be the file name)
 
 some screenshots:
+
+Uploader: 
+![uploader](./src/upload-screenshot.png)
+
+HTML returned from function:
+![uploader](./src/html-screenshot.png)
+
+Example headings that were created using the function:
+![uploader](./src/example-headings.png)
+
+
+
+
+
+
+
 ![haynes](./src/example-headings.png)
